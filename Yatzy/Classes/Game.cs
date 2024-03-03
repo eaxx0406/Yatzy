@@ -69,6 +69,8 @@ namespace Yatzy.Classes
                         scoreboard.DrawScoreboard(playersList);
                         Console.WriteLine("Runde: " + round);
                         Console.WriteLine("Nu er det " + player.Name + "s tur");
+                        Console.WriteLine("Tryk på Enter for at kaste terningerne");
+                        Console.ReadKey();
                         Console.WriteLine("Terningerne er kastet. Øjnene viser...");
                         Console.WriteLine(GenerateDices(diceList));
                         Console.WriteLine("    1          2          3          4          5");
@@ -96,7 +98,7 @@ namespace Yatzy.Classes
 
                     player.ChooseCombination();
 
-                    Console.WriteLine(player.Name + " har en score på " + player.Score);
+                    Console.WriteLine(player.Name + " har fået  " + player.RoundScore + " point");
                     Console.ReadKey();
                     Console.Clear();
                 }

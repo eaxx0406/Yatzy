@@ -330,7 +330,7 @@ namespace Yatzy.Classes
             }
         }
         //Chancen:Summen af alle fem terninger.
-        public static bool GetChanceScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes)
+        public static bool GetChanceScore(Player player)
         {
             if (player.Chance == false)
             {

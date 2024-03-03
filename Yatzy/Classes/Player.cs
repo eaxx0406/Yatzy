@@ -15,6 +15,7 @@ namespace Yatzy.Classes
         public int Sum = 0;
         public int Bonus = 0;
         public int Number;
+        public int RoundScore;
 
         public bool Ones = false;
         public int OnesScore;
@@ -155,7 +156,7 @@ namespace Yatzy.Classes
                 //Chancen:Summen af alle fem terninger.
                 else if (choosenCombination == "chance" || choosenCombination == "m")
                 {
-                    found = CombinationResolver.GetChanceScore(this, numberOfOnes, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives, numberOfSixes);
+                    found = CombinationResolver.GetChanceScore(this);
                 }
                 //Yatzy:Fem terninger med samme værdi. 50 point
                 else if (choosenCombination == "Yatzy" || choosenCombination == "n")
@@ -174,7 +175,9 @@ namespace Yatzy.Classes
             Sum = OnesScore + TwosScore + ThreesScore + FoursScore + FivesScore + SixesScore;
             if (Sum > 93) { Bonus = 100; }
             else if (Sum > 63) { Bonus = 63; }
+            int oldScore = Score;
             Score = OnesScore + TwosScore + ThreesScore + FoursScore + FivesScore + SixesScore + OnePairScore + TwoPairesScore + ThreeOfTheSameScore + FourOfTheSameScore + SmallStraightScore + BigStraightScore + ChanceScore + YatzyScore + Bonus;
+            RoundScore = Score - oldScore;
         }
     }
 }
