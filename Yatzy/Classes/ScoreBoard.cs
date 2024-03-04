@@ -24,12 +24,12 @@ namespace Yatzy.Classes
 
 
             // SpillerLinje
-            Console.Write($"|Slag\\Spiller".PadRight(ColumnWidth));
+            Console.Write($"│Slag\\Spiller".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.Name}".PadRight(ColumnWidth));
+                Console.Write($"│{player.Name}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             //skillelinje
             Console.Write("├".PadRight(ColumnWidth, '─'));
