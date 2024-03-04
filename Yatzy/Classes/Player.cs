@@ -37,6 +37,8 @@ namespace Yatzy.Classes
         public int ThreeOfTheSameScore;
         public bool FourOfTheSame = false;
         public int FourOfTheSameScore;
+        public bool House = false;
+        public int HouseScore;
         public bool SmallStraight = false;
         public int SmallStraightScore;
         public bool BigStraight = false;
@@ -143,23 +145,28 @@ namespace Yatzy.Classes
                 {
                     found = CombinationResolver.GetFourOfTheSameScore(this, numberOfOnes, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives, numberOfSixes);
                 }
+                //hus tre ens samtidigt med et andet par
+                else if (choosenCombination == "hus" || choosenCombination == "k")
+                {
+                    found = CombinationResolver.GetHouseScore(this, numberOfOnes, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives, numberOfSixes);
+                }
                 //Lille straight:Fem terninger i rækkefølge fra 1 til 5. 15 point.
-                else if (choosenCombination == "lille" || choosenCombination == "k")
+                else if (choosenCombination == "lille" || choosenCombination == "l")
                 {
                     found = CombinationResolver.GetSmallStraightScore(this, numberOfOnes, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives);
                 }
                 //Stor straight:Fem terninger i rækkefølge fra 2 til 6. 20 point.
-                else if (choosenCombination == "stor" || choosenCombination == "l")
+                else if (choosenCombination == "stor" || choosenCombination == "m")
                 {
                     found = CombinationResolver.GetBigStraightScore(this, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives, numberOfSixes);
                 }
                 //Chancen:Summen af alle fem terninger.
-                else if (choosenCombination == "chance" || choosenCombination == "m")
+                else if (choosenCombination == "chance" || choosenCombination == "n")
                 {
                     found = CombinationResolver.GetChanceScore(this);
                 }
                 //Yatzy:Fem terninger med samme værdi. 50 point
-                else if (choosenCombination == "Yatzy" || choosenCombination == "n")
+                else if (choosenCombination == "Yatzy" || choosenCombination == "o")
                 {
                     found = CombinationResolver.GetYatzyScore(this, numberOfOnes, numberOfTwoes, numberOfThrees, numberOfFoures, numberOfFives, numberOfSixes);
                 }
@@ -176,7 +183,7 @@ namespace Yatzy.Classes
             if (Sum > 93) { Bonus = 100; }
             else if (Sum > 63) { Bonus = 63; }
             int oldScore = Score;
-            Score = OnesScore + TwosScore + ThreesScore + FoursScore + FivesScore + SixesScore + OnePairScore + TwoPairesScore + ThreeOfTheSameScore + FourOfTheSameScore + SmallStraightScore + BigStraightScore + ChanceScore + YatzyScore + Bonus;
+            Score = OnesScore + TwosScore + ThreesScore + FoursScore + FivesScore + SixesScore + OnePairScore + TwoPairesScore + ThreeOfTheSameScore + FourOfTheSameScore + HouseScore + SmallStraightScore + BigStraightScore + ChanceScore + YatzyScore + Bonus;
             RoundScore = Score - oldScore;
         }
     }

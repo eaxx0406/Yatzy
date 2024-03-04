@@ -30,7 +30,7 @@ namespace Yatzy.Classes
 
             //rundekontrol
             int round = 1;
-            while (round <= 14)
+            while (round <= 15)
             {
 
                 //player controller
@@ -69,8 +69,11 @@ namespace Yatzy.Classes
                         scoreboard.DrawScoreboard(playersList);
                         Console.WriteLine("Runde: " + round);
                         Console.WriteLine("Nu er det " + player.Name + "s tur");
-                        Console.WriteLine("Tryk på Enter for at kaste terningerne");
-                        Console.ReadKey();
+                        if (tries == 1)
+                        {
+                            Console.WriteLine("Tryk på Enter for at kaste terningerne");
+                            Console.ReadKey();
+                        }
                         Console.WriteLine("Terningerne er kastet. Øjnene viser...");
                         Console.WriteLine(GenerateDices(diceList));
                         Console.WriteLine("    1          2          3          4          5");

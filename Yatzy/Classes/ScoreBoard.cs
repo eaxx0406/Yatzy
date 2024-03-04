@@ -15,7 +15,13 @@ namespace Yatzy.Classes
             int ColumnWidth = 20;
 
             //TOP linje
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth*players.Count)),'-'));
+            Console.Write("┌".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┬".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┐");
+
 
             // SpillerLinje
             Console.Write($"|Slag\\Spiller".PadRight(ColumnWidth));
@@ -25,151 +31,194 @@ namespace Yatzy.Classes
             }
             Console.WriteLine("|");
 
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth * players.Count)), '-'));
+            //skillelinje
+            Console.Write("├".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┼".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┤");
 
             // enere 
-            Console.Write($"|a - enere".PadRight(ColumnWidth));
+            Console.Write($"│a - enere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.OnesScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.OnesScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // toere 
-            Console.Write($"|b - toere".PadRight(ColumnWidth));
+            Console.Write($"│b - toere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.TwosScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.TwosScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // treere 
-            Console.Write($"|c - treere".PadRight(ColumnWidth));
+            Console.Write($"│c - treere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.ThreesScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.ThreesScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // firere 
-            Console.Write($"|d - firere".PadRight(ColumnWidth));
+            Console.Write($"│d - firere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.FoursScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.FoursScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // femere 
-            Console.Write($"|e - femere".PadRight(ColumnWidth));
+            Console.Write($"│e - femere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.FivesScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.FivesScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // seksere 
-            Console.Write($"|f - seksere".PadRight(ColumnWidth));
+            Console.Write($"│f - seksere".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.SixesScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.SixesScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth * players.Count)), '-'));
+            //skillelinje
+            Console.Write("├".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┼".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┤");
 
             // sum 
-            Console.Write($"|sum".PadRight(ColumnWidth));
+            Console.Write($"│Sum".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.Sum}".PadRight(ColumnWidth));
+                Console.Write($"│{player.Sum}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // BONUS 
-            Console.Write($"|Bonus".PadRight(ColumnWidth));
+            Console.Write($"│Bonus".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.Bonus}".PadRight(ColumnWidth));
+                Console.Write($"│{player.Bonus}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth * players.Count)), '-'));
+            //skillelinje
+            Console.Write("├".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┼".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┤");
 
             // et par  
-            Console.Write($"|g - et par".PadRight(ColumnWidth));
+            Console.Write($"│g - et par".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.OnePairScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.OnePairScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // to par  
-            Console.Write($"|h - to par".PadRight(ColumnWidth));
+            Console.Write($"│h - to par".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.TwoPairesScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.TwoPairesScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // tre ens  
-            Console.Write("|i - tre ens".PadRight(ColumnWidth));
+            Console.Write("│i - tre ens".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.ThreeOfTheSameScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.ThreeOfTheSameScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // fire ens  
-            Console.Write("|j - fire ens".PadRight(ColumnWidth));
+            Console.Write("│j - fire ens".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.FourOfTheSameScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.FourOfTheSameScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
+
+            //hus 
+            Console.Write($"│k - fuldt hus".PadRight(ColumnWidth));
+            foreach (Player player in players)
+            {
+                Console.Write($"│{player.HouseScore}".PadRight(ColumnWidth));
+            }
+            Console.WriteLine("│");
 
             // lille straight  
-            Console.Write($"|k - lille straight".PadRight(ColumnWidth));
+            Console.Write($"│l - lille straight".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.SmallStraightScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.SmallStraightScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // stor straight  
-            Console.Write($"|l - stor straight".PadRight(ColumnWidth));
+            Console.Write($"│m - stor straight".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.BigStraightScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.BigStraightScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             //chancen  
-            Console.Write($"|m - chancen".PadRight(ColumnWidth));
+            Console.Write($"│n - chancen".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.ChanceScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.ChanceScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
             // Yatzy  
-            Console.Write($"|n - yatzy".PadRight(ColumnWidth));
+            Console.Write($"│o - yatzy".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.YatzyScore}".PadRight(ColumnWidth));
+                Console.Write($"│{player.YatzyScore}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth * players.Count)), '-'));
+            //skillelinje
+            Console.Write("├".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┼".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┤");
 
             // total  
-            Console.Write($"|Total".PadRight(ColumnWidth));
+            Console.Write($"│Total".PadRight(ColumnWidth));
             foreach (Player player in players)
             {
-                Console.Write($"|{player.Score}".PadRight(ColumnWidth));
+                Console.Write($"│{player.Score}".PadRight(ColumnWidth));
             }
-            Console.WriteLine("|");
+            Console.WriteLine("│");
 
-            Console.WriteLine("".PadRight((ColumnWidth + (ColumnWidth * players.Count)), '-'));
+
+            //bundlinje
+            Console.Write("└".PadRight(ColumnWidth, '─'));
+            foreach (Player player in players)
+            {
+                Console.Write("┴".PadRight(ColumnWidth, '─'));
+            }
+            Console.WriteLine("┘");
+            
+
+
+          
         }
     }
 }

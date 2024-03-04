@@ -97,7 +97,7 @@ namespace Yatzy.Classes
                 return false;
             }
         }
-
+        //Et par:To terninger med samme værdi.Summen af terningerne.
         public static bool GetOnePairScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes)
         {
             if (player.OnePair == false)
@@ -140,6 +140,7 @@ namespace Yatzy.Classes
                 return false;
             }
         }
+         //To par:To forskellige par. Summen af terningerne. 
         public static bool GetTwoPairesScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes)
         {
             if (player.TwoPaires == false)
@@ -194,7 +195,7 @@ namespace Yatzy.Classes
                 return false;
             }
         }
-
+        //Tre ens:Tre terninger med samme værdi. Summen af terningerne.
         public static bool GetThreeOfTheSameScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes)
         {
             if (player.ThreeOfTheSame == false)
@@ -281,6 +282,32 @@ namespace Yatzy.Classes
                 return false;
             }
         }
+        //FULDT HUS: Et par og tre ens, parret og de tre ens skal være forskellige, Summen af terningerne 
+        public static bool GetHouseScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes) 
+        { if (player.House == false) 
+            { 
+                if ((numberOfOnes == 3|| numberOfTwoes == 3|| numberOfThrees == 3||numberOfFoures == 3||numberOfFives == 3 || numberOfSixes == 3 )&&
+                    (numberOfOnes == 2 || numberOfTwoes == 2 || numberOfThrees == 2 || numberOfFoures == 2 || numberOfFives == 2 || numberOfSixes == 2))
+                {
+                    foreach (int value in player.DieValues)
+                    {
+                        player.HouseScore = player.HouseScore + value;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("du har desværre ikke til at bygge et hus og får 0 point...");
+                }
+                player.House = true;
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Du har allerede bygget et hus");
+                return false;
+            }
+        }
+
         //Lille straight:Fem terninger i rækkefølge fra 1 til 5. 15 point.
         public static bool GetSmallStraightScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives)
         {
@@ -348,7 +375,7 @@ namespace Yatzy.Classes
                 return false;
             }
         }
-
+        //Yatzy:Fem terninger med samme værdi. 50 point
         public static bool GetYatzyScore(Player player, int numberOfOnes, int numberOfTwoes, int numberOfThrees, int numberOfFoures, int numberOfFives, int numberOfSixes)
         {
             if (player.Yatzy == false)
@@ -372,6 +399,8 @@ namespace Yatzy.Classes
                 return false;
             }
         }
+
+
     }
 
 }
